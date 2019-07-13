@@ -4,7 +4,7 @@
     <html>
         {% block content %}
         <body>
-            <div style="text-align: center; font-size: 80px;">
+            <div style="text-align: center; font-size: 80px;margin-bottom: 20px">
                 You Should Watch
                  <br />
             </div>
@@ -12,6 +12,7 @@
                 {{title}}
                 <br>
             </div>
+            <br /><br /><br />
             <div class="poster">
                 {% if poster == "N/A" %}
                     No poster available for this movie <br />
@@ -21,25 +22,26 @@
                 {% endif %}
             </div>
             <div class="info">
-                aaaaaaaaaa
-                <table>
-                    <thead>
-                            <tr>
-                                <th>Title</th>
-                                <th>Director</th>
-                                <th>Rating</th>
-                                <th>Genre</th>
-                            </tr>
-                        </thead>
-                    <tbody>
+                <div class="infoTable">
+                    <table border = "1">
                         <tr>
-                            <th>{{title}}</th>
-                            <th>{{director}}</th>
-                            <th>{{rating}}</th>
-                            <th>{{genre}}</th>
+                            <th>Title</th>
+                            <td>{{title}}</td>
                         </tr>
-                    </tbody>
-                </table>
+                        <tr>
+                            <th>Director</th>
+                            <td>{{director}}</td>
+                        </tr>
+                        <tr>
+                            <th>Rating</th>
+                                <td>{{rating}}</td>
+                        </tr>
+                        <tr>
+                            <th>Genre</th>
+                            <td>{{genre}}</td>
+                        </tr>
+                    </table>
+                </div>
             </div>
             
 
