@@ -15,19 +15,25 @@ def getrandomID():
     with open('movies.tsv', encoding = 'utf8') as movies:
         reader = csv.reader(movies, delimiter='\t')
         rows = list(reader)
-        print(rows[r][0])
         return rows[r][0]
 
-
-@app.route("/")
-def hello():
+@app.route("/random")
+def randomMovie():
     randID = getrandomID()
     response = requests.get(url = endpoint + randID + apikey)
-
     data = response.json()
     print(data)
     print(data['Title'])
-    return "helo"
+    return render_template("index.html")       
+
+@app.route("/")
+def hello():
+#     randID = getrandomID()
+#     response = requests.get(url = endpoint + randID + apikey)
+#     data = response.json()
+#     print(data)
+#     print(data['Title'])
+    return render_template("index.html")
 
 if __name__ == "__main__":
     app.run()

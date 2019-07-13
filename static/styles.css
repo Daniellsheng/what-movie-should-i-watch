@@ -1,0 +1,19 @@
+.random-button {
+    background-color: aquamarine;
+    color: white;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    height: 300px;
+    width: 300px;
+}
+
+.center-button {
+    margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
