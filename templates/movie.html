@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% extends "layout.html" %}
+<!DOCTYPE html>
+    <html>
+        {% block content %}
+        <body>
+            <div style="text-align: center; font-size: 80px;">
+                You Should Watch
+                 <br />
+            </div>
+            <div style="text-align: center; font-size: 60px;"> 
+                {{title}}
+                <br>
+            </div>
+            <div class="poster">
+                {% if poster == "N/A" %}
+                    No poster available for this movie <br />
+                    <img src="/static/spongebob.jpg">
+                {% else %}
+                    <img src="{{poster}}">
+                {% endif %}
+            </div>
+            <div class="info">
+                aaaaaaaaaa
+                <table>
+                    <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Director</th>
+                                <th>Rating</th>
+                                <th>Genre</th>
+                            </tr>
+                        </thead>
+                    <tbody>
+                        <tr>
+                            <th>{{title}}</th>
+                            <th>{{director}}</th>
+                            <th>{{rating}}</th>
+                            <th>{{genre}}</th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+
+        </body>
+        {% endblock %}
+    </html>

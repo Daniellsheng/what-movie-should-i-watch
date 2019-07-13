@@ -1,16 +1,11 @@
+{% extends "layout.html" %}
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>
-            Find a random movie
-        </title>
-        <link rel = "stylesheet" type = "text/css" href="{{ url_for('static', filename='styles.css') }}"}>
-    </head>
-    <body>
-        <div class = "center-button">
-            <a href="/random" class = "random-button"><input type="button" class = "random-button" value="Get a Random Movie"></a>
-        </div>
-        
-        
-    </body>
-</html>
+    <html>
+        <body>
+                {% block content %}
+                <div class = "center-button">
+                        <a href="/random" class = "random-button"><input type="button" class = "random-button" value="Get a Random Movie"></a>
+                </div>
+                {% endblock %}
+            </body>
+    </html>

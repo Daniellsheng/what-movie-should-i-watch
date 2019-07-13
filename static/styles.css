@@ -17,3 +17,16 @@
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
+
+.poster {
+    float: left;
+    width: 35%;
+    margin-left: 100px;
+    margin-top: 50px;
+}
+
+.info {
+    
+    float: right;
+    width: 65%;
+}
