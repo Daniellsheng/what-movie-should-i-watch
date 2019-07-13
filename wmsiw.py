@@ -3,11 +3,12 @@ import requests
 import json
 import csv
 import random
+import config
 
 app = Flask(__name__)
 
 endpoint = "http://www.omdbapi.com/?i="  #tt3896198
-apikey = ""
+apikey = config.apikey
 
 def getrandomID():
     r = random.randint(0, 645997)
