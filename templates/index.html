@@ -12,7 +12,7 @@
             <a href="#">Services</a>
             <a href="#">Clients</a>
             <a href="#">Contact</a> -->
-            <form action="/random" style = "padding-left: 25px">
+            <form action="http://localhost:5000/randomfilter" METHOD = "POST" style = "padding-left: 25px">
                 <select  name = "Genre">
                     <option value = "none">Genre</option>
                     <option value = "Action">Action</option>
@@ -46,7 +46,7 @@
                     <option value = "english">English</option>
                     <option value = "surprise">I'm feeling adventurous!</option>
                 </select><br><br><br>
-
+                <input type="submit" id = "submit" value ="Submit">
             </form>
         </div>
         <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Apply Filters</span>

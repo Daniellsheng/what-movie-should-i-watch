@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect
+from flask import Flask, render_template, redirect, request
 import requests
 import json
 import csv
@@ -18,6 +18,12 @@ def getrandomID():
         reader = csv.reader(movies, delimiter='\t')
         rows = list(reader)
         return rows[r][0]
+
+@app.route("/randomfilter", methods = ['POST'])
+def randfilt():
+    if request.method == "POST":
+        genre_filter = request.form['Genre']
+        print(genre_filter)
 
 @app.route("/random")
 def randomMovie():
