@@ -13,36 +13,29 @@
                 <br>
             </div>
             <br /><br /><br />
-            <div class="poster">
-                {% if poster == "N/A" %}
-                    No poster available for this movie <br />
-                    <img src="/static/spongebob.jpg">
-                {% else %}
-                    <img src="{{poster}}">
-                {% endif %}
-            </div>
-            <div class="info">
-                <div class="infoTable">
-                    <table border = "1">
-                        <tr>
-                            <th>Title</th>
-                            <td>{{title}}</td>
-                        </tr>
-                        <tr>
-                            <th>Director</th>
-                            <td>{{director}}</td>
-                        </tr>
-                        <tr>
-                            <th>Rating</th>
-                                <td>{{rating}}</td>
-                        </tr>
-                        <tr>
-                            <th>Genre</th>
-                            <td>{{genre}}</td>
-                        </tr>
-                    </table>
+            <div class = "movie-container">
+                <div class="poster">
+                    {% if poster == "N/A" %}
+                        
+                        <img src="/static/spongebob.jpg" width="100%">
+                    {% else %}
+                        <img src="{{poster}}" width="100%">
+                    {% endif %}
+                </div>
+                <div class="info">
+                    <p class="meta-data"> Genre: {{genre}}</p>
+                    <p class="meta-data"> IMDB Rating: {{rating}}/10</p>
+                    <p class="meta-data"> Director: {{director}}</p>
+                    <p class="meta-data"> Actors:  {{actors}}</p>
+                    <p class="meta-data"> Year: {{year}}</p>
+                    <p class="meta-data"> Rated: {{rated}}</p>
+                    <p class="meta-data"> <a href="{{url}}" target="_blank">IMDB</a></p>
+
+                    
+                    
                 </div>
             </div>
+            
             
 
         </body>

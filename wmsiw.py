@@ -26,14 +26,18 @@ def randomMovie():
     print(data)
     if data['Response'] == 'False':
         randomMovie()
-    title = data['Title']
-    year = data['Year']
-    genre = data['Genre']
-    director = data['Director']
-    poster = data['Poster']
-    rating = data['imdbRating']
+    else:
+        title = data['Title']
+        year = data['Year']
+        genre = data['Genre']
+        director = data['Director']
+        poster = data['Poster']
+        rating = data['imdbRating']
+        rated = data['Rated']
+        url = "https://imdb.com/title/" + data['imdbID']
+        actors = data['Actors']
 
-    return render_template("movie.html", title = title, year = year, genre = genre, director = director, poster = poster, rating = rating)       
+    return render_template("movie.html", title = title, year = year, genre = genre, director = director, poster = poster, rating = rating, rated = rated, url = url, actors = actors)       
 
 @app.route("/")
 def hello():

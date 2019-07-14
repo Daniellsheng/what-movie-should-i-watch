@@ -16,17 +16,26 @@
   left: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+
+}
+input[type="button"] {
+    font-size: 24px;
 }
 
 .poster {
     float: left;
     width: 35%;
-    /* margin-left: 100px;
-    margin-top: 50px; */
+
 }
 
 .info {
-    
+
+    margin-left: 15px;
     float: right;
-    width: 65%;
+    width: 60%;
+}
+
+.movie-container {
+    padding-left: 25%;
+    padding-right: 25%;
 }
