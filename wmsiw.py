@@ -4,6 +4,7 @@ import json
 import csv
 import random
 import config
+import sqlite3 as sql
 
 app = Flask(__name__)
 
@@ -11,23 +12,38 @@ endpoint = "http://www.omdbapi.com/?i="  #tt3896198
 apikey = config.apikey
 
 
-#select * from MoviesTable WHERE genres = "Comedy" ORDER BY RANDOM() LIMIT 1;
-def getrandomID():
-    r = random.randint(0, 645997)
-    with open('movies.tsv', encoding = 'utf8') as movies:
-        reader = csv.reader(movies, delimiter='\t')
-        rows = list(reader)
-        return rows[r][0]
+def getRandomIDSQL_genre(genre):
+    con = sql.connect("movies.db")
+    cur = con.cursor()
+    cur.execute("select * from MoviesTable WHERE genres = ? ORDER BY RANDOM() LIMIT 1", [genre])
+    data = cur.fetchall()
+    print("sql", data[0][0])
+    con.close()
+    return data[0][0]           #returns the IMDB ID of a movie
 
-@app.route("/randomfilter", methods = ['POST'])
-def randfilt():
-    if request.method == "POST":
-        genre_filter = request.form['Genre']
-        print(genre_filter)
+def getRandomIDSQL():
+    con = sql.connect("movies.db")
+    cur = con.cursor()
+    cur.execute("select * from MoviesTable ORDER BY RANDOM() LIMIT 1")
+    data = cur.fetchall()
+    print("sql", data[0][0])
+    con.close()
+    return data[0][0]   
 
-@app.route("/random")
+@app.route('/about')
+def about():
+    return render_template("about.html")
+
+@app.route("/random/")
 def randomMovie():
-    randID = getrandomID()
+    genre_query = request.args.get("genre")
+    print(genre_query)
+
+    if genre_query is None:
+        randID = getRandomIDSQL()
+    else:
+        randID = getRandomIDSQL_genre(genre_query)
+
     response = requests.get(url = endpoint + randID + apikey)
     data = response.json()
   
